@@ -103,7 +103,7 @@ def welcome():
 	security(str(sys._getframe().f_code.co_name))
 #	print "Welcome to Amrita Smart-Grid Middleware"
 #	print "kindly use one of the APIs to get data"
-	return "Welcome to Amrita Intelligent Infrastructure Data Management and Control Panel App. \n Use one of the options below."
+	return render_template('/home/saishibu/OceanNet-Webpage/index.html')
 	#return render_template('/home/cs/SGM/Server/welcome.html')
 
 @app.route('/stp/test')
