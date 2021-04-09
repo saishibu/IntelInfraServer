@@ -1,0 +1,386 @@
+<!doctype html>
+
+<html>
+	<head>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+
+<!-- search location -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+
+
+<!-- measure -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<link rel="stylesheet" href="../lib/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="../lib/leaflet.js"></script>
+
+    <!-- print plugin -->
+    <script src="../lib/leaflet.browser.print.min.js"></script>
+
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#map {
+			width: 99vw;
+			height: 93vh;
+		}
+		
+		/* ____RANGE SLIDE CSS---- */
+	
+.colorscale {
+	display: flex;
+    width: 100vw !important;
+    flex-wrap: wrap;
+  
+}
+
+.leaflet-right .leaflet-control {
+    margin-right: 10px;
+}
+.leaflet-bottom .leaflet-control {
+    margin-bottom: 10px;
+}
+.leaflet-right .leaflet-control {
+    float: right;
+}
+.leaflet-control-color-scale {
+    font-family: "Space Grotesk",Arial,sans-serif;
+    font-size: 10px;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 2px 1px rgb(0 0 0 / 50%);
+    box-shadow: 0 1px 2px 1px rgb(0 0 0 / 50%);
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 0;
+    height: 26px;
+	
+}
+.leaflet-control, .leaflet-popup-pane {
+    cursor: auto;
+}
+.leaflet-control {
+    float: left;
+    clear: both;
+}
+.leaflet-control {
+    position: relative;
+    z-index: 7;
+    pointer-events: auto;
+}
+.leaflet-control-color-scale {
+    font-family: Source Sans Pro,sans-serif;
+    font-size: 10px;
+    background: #fff;
+    color: #777;
+    box-shadow: 0 1px 2px 1px rgb(0 0 0 / 50%);
+    border-radius: 5px;
+    padding: 0;
+    height: 26px;
+}
+.leaflet-control-color-scale-line {
+    margin: 15px 5px 5px;
+    position: inherit;
+    height: 5px;
+    border-top: 1px solid #777;
+    border-bottom: 1px solid #777;
+}
+
+.leaflet-control-color-scale-line {
+    margin: 15px 5px 5px;
+    position: inherit;
+    height: 5px;
+    border-top: 1px solid #777;
+    border-bottom: 1px solid #777;
+}
+
+.scale-details:only-child {
+    margin-bottom: 0;
+}
+.scale-details {
+    color: #48484a;
+    height: 25pt;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 2pt 4pt;
+    background-color: #fff;
+    -webkit-border-radius: 4pt;
+    border-radius: 4pt;
+    -webkit-box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+    box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+    -webkit-transition: -webkit-box-shadow .1s ease-out;
+    -o-transition: box-shadow .1s ease-out;
+    transition: box-shadow .1s ease-out;
+    transition: box-shadow .1s ease-out,-webkit-box-shadow .1s ease-out;
+    margin-bottom: 10px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    font-size: 10px;
+}
+.scale-details>div:first-child {
+    width: 80px; 
+    white-space: nowrap;
+    font-size: 10px;
+} 
+
+.scale-gradient {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.scale-dividers, .scale-gradient {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.scale-dividers {
+    width: 100%;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.scale-dividers, .scale-gradient {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.horizontal-gradient-line {
+    -webkit-border-radius: 4pt;
+    border-radius: 4pt;
+    height: 4px;
+    opacity: .9;
+    width: 260px;
+    border-left: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;
+}
+h1 {
+    height: 25px;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 8px 32px 0 rgb(255, 255, 255);
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+	</style>
+	</head>
+	<body>
+		<div id="map"></div>
+        <h1>SCROLL DOWN/താഴേക്ക് സ്ക്രോൾ ചെയ്യുക/கீழே உருட்டவும்/కిందకి జరుపు/नीचे स्क्रॉल करें</h1>
+	
+		<div class="colorscale">
+			<div class="leaflet-control-color-scale leaflet-control" style="display: block; background: none; box-shadow: none; border-width: 0px; margin-right: 50px; width: 360px; height: 27px; padding-bottom: 35px; margin-left: 50px;">
+				<div class="leaflet-control-color-scale-line" style="background-image: none; position: relative; border-width: 0px; margin: 0px;">
+					<!-- temperature -->
+					<div class="scale-details">
+						<div>Temperature, °C</div>
+						<div class="scale-gradient" style="width: 260px;">
+							<div class="scale-dividers">
+								<div>-40</div><div>-20</div><div>0</div><div>20</div><div>40</div>
+							</div>
+								<div class="horizontal-gradient-line" style="background-image: linear-gradient(to right, rgb(159, 85, 181) 0%, rgb(44, 106, 187) 8.75%, rgb(82, 139, 213) 12.5%, rgb(103, 163, 222) 18.75%, rgb(142, 202, 240) 25%, rgb(155, 213, 244) 31.25%, rgb(172, 225, 253) 37.5%, rgb(194, 234, 255) 43.75%, rgb(255, 255, 208) 50%, rgb(254, 248, 174) 56.25%, rgb(254, 232, 146) 62.5%, rgb(254, 226, 112) 68.75%, rgb(253, 212, 97) 75%, rgb(244, 168, 94) 82.5%, rgb(244, 129, 89) 87.5%, rgb(244, 104, 89) 93.75%, rgb(244, 76, 73) 100%);"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- pressure -->
+	<div class="leaflet-control-color-scale leaflet-control" style="display: block; background: none; box-shadow: none; border-width: 0px; margin-right: 50px; width: 360px; height: 27px; padding-bottom: 20px;">
+		<div class="leaflet-control-color-scale-line" style="background-image: none; position: relative; border-width: 0px; margin: 0px;">
+			<div class="scale-details">
+				<div>Pressure, hPa</div>
+				<div class="scale-gradient" style="width: 260px;">
+					<div class="scale-dividers">
+						<div>950</div><div>980</div><div>1010</div><div>1040</div><div>1070</div>
+					</div>
+					<div class="horizontal-gradient-line" style="background-image: linear-gradient(to right, rgb(0, 115, 255) 0%, rgb(0, 170, 255) 8.35059%, rgb(75, 208, 214) 24.9192%, rgb(141, 231, 199) 41.4879%, rgb(176, 247, 32) 49.7722%, rgb(240, 184, 0) 58.0565%, rgb(251, 85, 21) 74.6251%, rgb(243, 54, 59) 91.1938%, rgb(198, 0, 0) 100%);"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+			<!-- windspeed -->
+			<div class="leaflet-control-color-scale leaflet-control" style="display: block; background: none; box-shadow: none; border-width: 0px; margin-right: 10px; width: 360px; height: 27px;">
+				<div class="leaflet-control-color-scale-line" style="background-image: none; position: relative; border-width: 0px; margin: 0px;">
+					<div class="scale-details">
+						<div>Wind speed, m/s</div>
+						<div class="gradient-container">
+							<div class="scale-dividers " style="width: 260px;">
+								<div>0</div><div>2</div><div>3</div><div>6</div><div>12</div><div>25</div><div>50</div><div>100</div>
+							</div>
+							<div class="horizontal-gradient-line" style="width: 260px; background: linear-gradient(to left, rgb(158, 128, 177), rgba(116, 76, 172, 0.9), rgb(164, 123, 170), rgba(170, 128, 177, 0.84), rgba(176, 128, 177, 0.71), rgba(170, 128, 177, 0.54), rgba(170, 128, 177, 0.44), rgba(255, 255, 0, 0));">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- CLOUDS -->
+			<div class="leaflet-control-color-scale leaflet-control" style="display: block; background: none; box-shadow: none; border-width: 0px; margin-right: 10px; width: 360px; height: 27px; margin-left: 50px;margin-right: 50px;">
+				<div class="leaflet-control-color-scale-line" style="background-image: none; position: relative; border-width: 0px; margin: 0px;">
+					<div class="scale-details"><div>Clouds, %</div><div class="scale-gradient" style="width: 260px;"><div class="scale-dividers"><div>0</div><div>25</div><div>50</div><div>75</div><div>100</div></div><div class="horizontal-gradient-line" style="background-image: linear-gradient(to right, rgba(247, 247, 255, 0) 0%, rgba(251, 247, 255, 0) 10%, rgba(244, 248, 255, 0.1) 20%, rgba(240, 249, 255, 0.2) 30%, rgba(221, 250, 255, 0.4) 40%, rgba(224, 224, 224, 0.9) 50%, rgba(224, 224, 224, 0.76) 60%, rgba(228, 228, 228, 0.9) 70%, rgba(232, 232, 232, 0.9) 80%, rgb(214, 213, 213) 90%, rgb(210, 210, 210) 95%, rgb(183, 183, 183) 100%);"></div></div></div></div></div>
+
+			<!-- preciptation -->
+			<div class="leaflet-control-color-scale leaflet-control" style="display: block; background: none; box-shadow: none; border-width: 0px; margin-right: 10px; width: 360px; height: 27px;"><div class="leaflet-control-color-scale-line" style="background-image: none; position: relative; border-width: 0px; margin: 0px;"><div class="scale-details"><div>Precipitation, mm/h</div><div class="gradient-container"><div class="scale-dividers " style="width: 260px;"><div>0</div><div>0.5</div><div>1</div><div>2</div><div>4</div><div>6</div><div>7</div><div>10</div><div>12</div><div>14</div><div>16</div><div>24</div><div>32</div><div>60</div></div><div class="horizontal-gradient-line" style="width: 260px; background: linear-gradient(to left, rgb(170, 43, 195), rgb(255, 0, 146), rgb(255, 0, 100), rgb(255, 0, 0), rgb(255, 91, 0), rgb(255, 150, 0), rgb(255, 205, 0), rgb(239, 248, 0), rgb(0, 70, 0), rgb(0, 90, 0), rgb(0, 160, 0), rgb(0, 211, 0), rgb(0, 250, 100), rgba(0, 0, 0, 0));"></div></div></div></div></div>
+		</div>
+       
+       
+
+	</body>
+	    
+     <!-- ------------------------plugins script--------- -->
+     
+    <!-- laflet js -->
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+     
+	<!-- location popup plugin CDN -->
+  	<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+
+	  <!-- search bar plugin  -->
+	<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+	
+	<!-- Measure plugin js
+    
+	<script src="https://cdn.jsdelivr.net/npm/leaflet-measure@3.1.0/dist/leaflet-measure.min.js"></script> -->
+     
+     
+   
+	
+
+
+  <script>
+	  
+
+	var key = '95c24917f8cc445dad4ea6113a933807';
+
+    var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+    maxZoom: 20, minZoom: 2,
+    subdomains:['mt0','mt1','mt2','mt3']
+});
+
+
+	var pressureTile = 'https://tile.openweathermap.org/map/pressure_new/{z}/{x}/{y}.png?appid=' + key;
+
+	var windSpeedTile = 'https://tile.openweathermap.org/map/wind_new/{z}/{x}/{y}.png?appid=' + key;
+
+	var temperatureTile = 'https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=' + key;
+
+	var precipitationTile = 'https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=' + key;
+
+	var cloudsTile = 'https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=' + key ;
+
+    
+
+
+
+	var pressure = L.tileLayer(pressureTile, {id: 'map', minZoom: 2, maxZoom: 15,tileSize: 512, zoomOffset: -1, attribution: 'Pressure'}),
+    windspeed   = L.tileLayer(windSpeedTile, {id: 'map', minZoom: 2, maxZoom: 15, tileSize: 512, zoomOffset: -1, attribution: 'Wind Speed'}),
+	temp = L.tileLayer(temperatureTile, {id: 'map', minZoom: 2, maxZoom: 15, tileSize: 512, zoomOffset: -1, attribution: 'Temperature'}),
+	precip = L.tileLayer(precipitationTile, {id: 'map', minZoom: 2,  maxZoom: 15, tileSize: 512, zoomOffset: -1, attribution: 'Precipitation'}),
+	cloud = L.tileLayer(cloudsTile, {id: 'map', minZoom: 2, maxZoom: 15, tileSize: 512, zoomOffset: -1, attribution: 'Clouds'}),
+   
+
+	defaultMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {minZoom: 2,
+		maxZoom: 15, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors|&copy; <a href="https://openweathermap.org/">Openweather</a>'
+	});
+		
+     
+    
+	
+	const map = L.map('map', {
+		center: [8.878288, 76.578827],
+		zoom: 2,
+		layers: [defaultMap,googleSat]
+		
+	});
+	
+    
+    
+	// Location finder
+	L.control.locate().addTo(map);
+    
+	
+    
+		
+	var baseMap = {
+		Pressure: pressure,
+		Windspeed: windspeed,
+		Temperature: temp,
+		Precipitation: precip,
+		Clouds: cloud
+       
+	};
+   
+	
+	var overlayMap = {
+		Satellite: googleSat        
+	};
+
+  
+   
+   
+	// to view lat and longitude when clicked
+	var popup = L.popup();
+
+	function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map);
+         }
+
+    map.on('click', onMapClick);	
+	
+
+	//  openleaf base layer
+	L.control.layers(baseMap, overlayMap).addTo(map);
+        
+		
+	// search bar
+	L.Control.geocoder({position: 'bottomleft'}).addTo(map);
+
+	
+	
+    
+	// // distance Measurment
+	// L.Measure = {
+    // linearMeasurement: "Distance measurement",
+    // areaMeasurement: "Area measurement",
+    // start: "开始",
+    // meter: "m",
+    // kilometer: "km",
+    // squareMeter: "m²",
+    // squareKilometers: "km²",
+    // };
+
+    // var measure = L.control.measure({}).addTo(map);
+
+	
+	
+
+
+  </script>
+</html>
