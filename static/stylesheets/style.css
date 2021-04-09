@@ -43,13 +43,13 @@ section {
   letter-spacing: 1px;
   font-weight: 700;
   margin: 0;
-  color: #34a5a8;
+  color: #11adad;
   text-transform: uppercase;
 }
 
 .section-header h3 {
 font-size: 36px;
-    color: #34a5a8;
+    color: #11adad;
     text-align: center;
     font-weight: 700;
     position: relative;
@@ -85,7 +85,7 @@ font-size: 36px;
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background: #34a5a8;
+  background: #11adad;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -180,7 +180,7 @@ font-size: 36px;
   font-family: "Nunito", sans-serif;
   font-size: 16px;
   font-weight: 700;
-  color: #34a5a8;
+  color: #11adad;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -196,7 +196,7 @@ font-size: 36px;
 }
 
 .navbar .getstarted {
-  background: #34a5a8;
+  background: #11adad;
   padding: 8px 20px;
   margin-left: 30px;
   border-radius: 4px;
@@ -387,8 +387,8 @@ font-size: 36px;
 .hero h1 {
   margin: 0;
   font-size: 48px;
-  font-weight: 700;
-  color: #34a5a8;
+  font-weight: 800;
+  color: #11adad;
 }
 
 .hero h2 {
@@ -429,6 +429,37 @@ font-size: 36px;
   text-align: right;
 }
 
+.btn-watch-video {
+  font-size: 16px;
+  margin: 0 0 0 25px;
+  line-height: 0;
+  padding: 16px 40px;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #fff;
+  background: #ffa139;
+  box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+}
+.hero .btn-watch-video span {
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.btn-watch-video i {
+  line-height: 0;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.3s;
+  margin-right: 8px;
+}
+
+.btn-watch-video:hover {
+  color: #fff;
+}
+
 
 @media (min-width: 1024px) {
   .hero {
@@ -467,13 +498,13 @@ font-size: 36px;
 
 /*--------------------------------------------------------------
 # Index Page
-/* Features Section
+/* Services Section
 --------------------------------*/
-#features {
+#services {
   padding: 60px 0 40px 0;
 }
 
-#features .box {
+#services .box {
   padding: 30px;
   position: relative;
   overflow: hidden;
@@ -485,11 +516,11 @@ font-size: 36px;
   text-align: center;
 }
 
-#features .box:hover {
+#services .box:hover {
   transform: scale(1.1);
 }
 
-#features .icon {
+#services .icon {
   margin: 0 auto 15px auto;
   padding-top: 12px;
   display: inline-block;
@@ -499,42 +530,42 @@ font-size: 36px;
   height: 60px;
 }
 
-#features .icon i {
+#services .icon i {
   font-size: 36px;
   line-height: 0;
 }
 
-#features .title {
+#services .title {
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 18px;
 }
 
-#features .title a {
+#services .title a {
   color: #111;
 }
 
-#features .box:hover .title a {
+#services .box:hover .title a {
   color: #1bb1dc;
 }
 
-#features .description {
+#services .description {
   font-size: 14px;
   line-height: 28px;
   margin-bottom: 0;
   text-align: left;
 }
 
-.features-header h3 {
+.services-header h3 {
   font-size: 36px;
-      color: #34a5a8;
+      color: #11adad;
       text-align: center;
       font-weight: 700;
       position: relative;
       font-family: "Montserrat", sans-serif;
   }
 
-  .features-header p {
+  .services-header p {
     text-align: center;
       margin: auto;
       font-size: 22px;
@@ -542,6 +573,26 @@ font-size: 36px;
       color: #515151;
       width: 50%;
   }
+
+  .box-1 {
+    border-top: 4px solid #ff689b;
+  }
+  .box-2 {
+    border-top: 4px solid #e98e06;
+  }
+  .box-3 {
+    border-top: 4px solid #3fcdc7;
+  }
+  .box-4 {
+    border-top: 4px solid #41cf2e;
+  }
+  .box-5 {
+    border-top: 4px solid #2282ff;
+  }
+  .box-6 {
+    border-top: 4px solid #8660fe;
+  }
+
 
 /*--------------------------------------------------------------
 # Contact
@@ -560,7 +611,7 @@ font-size: 36px;
 
 .contact .info-box h3 {
   font-size: 20px;
-  color: #34a5a8;
+  color: #11adad;
   font-weight: 700;
   margin: 20px 0 10px 0;
 }
@@ -573,8 +624,9 @@ font-size: 36px;
 }
 
 .contact .php-email-form {
-  background: #fafbff;
   padding: 30px;
+  height: 100%;
+  margin-right: 56px;
   height: 100%;
 }
 
@@ -627,7 +679,7 @@ font-size: 36px;
 }
 
 .contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
-  border-color: #4154f1;
+  border-color: #11adad;
 }
 
 .contact .php-email-form input {
@@ -639,7 +691,7 @@ font-size: 36px;
 }
 
 .contact .php-email-form button[type="submit"] {
-  background: #34a5a8;
+  background:#ffa139 ;
   border: 0;
   padding: 10px 30px;
   color: #fff;
@@ -648,7 +700,7 @@ font-size: 36px;
 }
 
 .contact .php-email-form button[type="submit"]:hover {
-  background: #ffa139;
+  background: #11adad;
 }
 
 @-webkit-keyframes animate-loading {
@@ -668,6 +720,13 @@ font-size: 36px;
     transform: rotate(360deg);
   }
 }
+
+.contact-img {
+  position: relative;
+    bottom: 50px;
+    left: 30px;
+}
+
 
 
 /*--------------------------------------------------------------
@@ -691,7 +750,7 @@ font-size: 36px;
   padding: 0;
   line-height: 1;
   font-weight: 700;
-  color: #34a5a8;
+  color: #11adad;
 }
 
 .footer .footer-newsletter form {
@@ -761,7 +820,7 @@ font-size: 36px;
   font-size: 30px;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #34a5a8;
+  color: #11adad;
   font-family: "Nunito", sans-serif;
   margin-top: 3px;
 }
@@ -776,7 +835,7 @@ font-size: 36px;
 .footer .footer-top .social-links a {
   font-size: 20px;
   display: inline-block;
-  color: #34a5a8;
+  color: #11adad;
   line-height: 0;
   margin-right: 10px;
   transition: 0.3s;
@@ -789,7 +848,7 @@ font-size: 36px;
 .footer .footer-top h4 {
   font-size: 16px;
   font-weight: bold;
-  color: #34a5a8;
+  color: #11adad;
   text-transform: uppercase;
   position: relative;
   padding-bottom: 12px;
@@ -827,7 +886,7 @@ font-size: 36px;
 }
 
 .footer .footer-top .footer-links ul a {
-  color: #34a5a8;
+  color: #11adad;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
@@ -840,18 +899,18 @@ font-size: 36px;
 
 .footer .footer-top .footer-contact p {
   line-height: 26px;
-  color: #34a5a8;
+  color: #11adad;
 }
 
 .footer .copyright {
   text-align: center;
   padding-top: 30px;
-  color: #34a5a8;
+  color: #11adad;
 }
 
 .footer .credits {
   padding-top: 10px;
   text-align: center;
   font-size: 13px;
-  color: #34a5a8;
+  color: #11adad;
 }
