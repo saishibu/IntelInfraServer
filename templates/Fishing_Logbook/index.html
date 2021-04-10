@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fishing logbook</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="style/style.css"/>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="bootstrap/js/bootstrap.min.js"/>
+    <!-- font awesome  -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+
+    <!-- font-family -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* td,th{
+            border: 1px solid #dee2e6;
+        } */
+        tbody, td, tfoot, th, thead, tr {
+    border-color: transparent !important;
+    border-style: solid;
+    border-width: 0;
+}
+    </style>
+</head>
+<body>
+    <!-- bg-secondary py-5 -->
+<div class="background-color">
+    <div class="container">
+        <div class="row">
+            <!-- bg-light -->
+            <div class="col-md-4 col-12 form-control-parent  py-2 px-3 bg-transparent ">
+                <div class="form-group d-flex align-items-center justify-content-between mb-2">
+                    <label class="w-75" for="date" style="display: flex; align-items: center;">
+                        <i class="bi bi-calendar-week bs-icons "></i> 
+                        <h2 class="bs-icons-padding" style=" font-size: 18px !important;
+                        font-weight: 550 !important;">Date</h2>
+                        
+                    </label>
+                    <input type="date" id="date" class="form-control ms-2">
+                </div>
+                <div class="form-group d-flex align-items-center justify-content-between mb-2">
+                    <label class="w-75" for="time" style="display: flex; align-items: center;">
+                        <i class="bi bi-clock-history bs-icons"></i> 
+                        <h2 class="bs-icons-padding" style=" font-size: 18px !important;
+                        font-weight: 550 !important;">Time</h2>
+                    </label>
+                    <input type="time" id="time" class="form-control ms-2">
+                </div>
+                <div class="form-group d-flex align-items-center justify-content-between mb-2">
+                    <label class="w-75" for="location" style="display: flex; align-items: center;">
+                        <i class="bi bi-geo-alt bs-icons"></i> 
+                        <h2 class="bs-icons-padding" style=" font-size: 18px !important;
+                        font-weight: 550 !important;">Location</h2>
+                    </label>
+                    <input type="text" id="location" class="form-control ms-2">
+                </div>
+                <div class="form-group d-flex align-items-center justify-content-between mb-2">
+                    <label class="w-75" for="co-ordinates" style="display: flex; align-items: center;">
+                        <i class="bi bi-compass bs-icons"></i> 
+                        <h2 class="bs-icons-padding" style=" font-size: 18px !important;
+                        font-weight: 550 !important;">Co-Ordinates</h2>
+                    </label>
+                    <input type="text" id="co-ordinates" class="form-control ms-2">
+                </div>
+                <div class="form-group d-flex align-items-center justify-content-between mb-2">
+                    <label class="w-75" for="friend" style="display: flex; align-items: center;">
+                        <i class="bi bi-person-plus bs-icons"></i>
+                        <h2 class="bs-icons-padding" style=" font-size: 18px !important;
+                        font-weight: 550 !important;"> Friend</h2>
+                    </label>
+                    <input type="text" id="friend" class="form-control ms-2">
+                </div>
+            </div>
+            <div class="col-md-4 col-12 form-control-parent  py-2 px-3 bg-transparent">
+                <h4 class="text-center ">Weather Condition</h4>
+                <div class="d-flex align-items-center justify-content-between my-3">
+                    <!-- <div class="d-flex flex-column">
+                        icon
+                    </div>
+                    <div class="d-flex flex-column">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                            <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                        </svg>
+                    </div> -->
+                    <div class="d-flex flex-column align-items-center">
+                        <label for="sun" class="mb-2 weather-icon">
+                            <i class="bi bi-brightness-high bs-icons"></i>
+                        </label>
+                        <input type="checkbox" id="sun">
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                        <label for="sky-sun" class="mb-2 weather-icon">
+                            <i class="bi bi-cloud-sun bs-icons"></i>
+                        </label>
+                        <input type="checkbox" id="sky-sun">
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                        <label for="sky-rain" class="mb-2 weather-icon">
+                            <i class="bi bi-cloud-drizzle bs-icons"></i>
+                        </label>
+                        <input type="checkbox" id="sky-rain">
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                        <label for="sky-flash" class="mb-2 weather-icon">
+                            <i class="bi bi-cloud-lightning-rain bs-icons"></i>
+                        </label>
+                        <input type="checkbox" id="sky-flash">
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                        <label for="sun-dark" class="mb-2 weather-icon">
+                            <i class="bi bi-cloud-haze bs-icons"></i>
+                        </label>
+                        <input type="checkbox" id="sun-dark">
+                    </div>
+                </div>
+                <!-- border-bottom -->
+                <h4 class="text-center">Visibility</h4>
+                <div class="d-flex align-items-center justify-content-between my-3">
+                    <div class="d-flex flex-column">
+                        <i class="bi bi-brightness-high bs-icons"></i>
+                    </div>
+                    <div class="d-flex flex-column align-items-center vertical-line-map-parent">
+                        <label for="number-1" class="vertical-line-map-1 vertical-line-map">1</label>
+                        <input type="radio" id="number-1" name="visibility">
+                    </div>
+                    <div class="d-flex flex-column align-items-center vertical-line-map-parent">
+                        <label for="number-2" class="vertical-line-map-2 vertical-line-map">2</label>
+                        <input type="radio" id="number-2" name="visibility">
+                    </div>
+                    <div class="d-flex flex-column align-items-center vertical-line-map-parent">
+                        <label for="number-3" class="vertical-line-map-3 vertical-line-map">3</label>
+                        <input type="radio" id="number-3" name="visibility">
+                    </div>
+                    <div class="d-flex flex-column align-items-center vertical-line-map-parent">
+                        <label for="number-4" class="vertical-line-map-4 vertical-line-map">4</label>
+                        <input type="radio" id="number-4" name="visibility">
+                    </div>
+                    <div class="d-flex flex-column align-items-center vertical-line-map-parent">
+                        <label for="number-5" class="vertical-line-map-5 vertical-line-map">5</label>
+                        <input type="radio" id="number-5" name="visibility">
+                    </div>
+                    <div class="d-flex flex-column">
+                        <i class="bi bi-cloud-haze-1 bs-icons"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-12 form-control-parent  py-2 px-3 bg-transparent">
+                <!-- border-bottom -->
+                <h4 class="text-center ">Moon Phase</h4>
+                <div class="d-flex align-items-center justify-content-center my-3">
+                    <div class="d-flex flex-column mx-2 align-items-center">
+                        <label for="moon-dark" class="mb-2 moon-icon">
+                            <img src="images/moon-dark.png" alt="" style="width: 25px;">
+                        </label>
+                        <input type="checkbox" id="moon-dark">
+                    </div>
+                    <div class="d-flex flex-column mx-2 align-items-center">
+                        <label for="moon-high" class="mb-2 moon-icon">
+                            <img src="images/moon-high.png" alt="" style="width: 25px;">
+                        </label>
+                        <input type="checkbox" id="moon-high">
+                    </div>
+                    <div class="d-flex flex-column mx-2 align-items-center">
+                        <label for="moon-half" class="mb-2 moon-icon">
+                            <img src="images/moon-half.png" alt="" style="width: 25px;">
+                        </label>
+                        <input type="checkbox" id="moon-half">
+                    </div>
+                    <div class="d-flex flex-column mx-2 align-items-center">
+                        <label for="moon-less" class="mb-2 moon-icon">
+                            <img src="images/moon-less.png" alt="" style="width: 25px;">
+                        </label>
+                        <input type="checkbox" id="moon-less">
+                    </div>
+                    <div class="d-flex flex-column mx-2 align-items-center">
+                        <label for="moon-blank" class="mb-2 moon-icon">
+                            <img src="images/moon-blank.png" alt="" style="width: 25px;">
+                        </label>
+                        <input type="checkbox" id="moon-blank">
+                    </div>
+                </div>
+                <!-- border-bottom -->
+                <h4 class="text-center ">Compass</h4>
+                <div class="compass-icon">
+                    <div class="vertical-line">
+                        <label for="east" class="east"><input name="directions" type="radio" id="east"> E</label>
+                        <label for="south" class="south"><input name="directions" type="radio" id="south"> S</label>
+                        <label for="west" class="west"><input name="directions" type="radio" id="west"> W</label>
+                        <label for="north" class="north"><input name="directions" type="radio" id="north"> N</label>
+                    </div>
+                    <div class="horizontal-line"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 ">
+                <div class="table-responsive wind-water-tide bg-transparent">
+                    <!-- style="border-collapse: collapse" -->
+                    <table class="table" >
+                        <tbody>
+                        <tr>
+                            <th scope="row">Wind</th>
+                            <td>
+                                <label class="mb-2" for="duration">Duration: </label>
+                                <input type="text" class="form-control" id="duration">
+                            </td>
+                            <td>
+                                <label class="mb-2" for="speed">Speed: </label>
+                                <input type="text" class="form-control" id="speed">
+                            </td>
+                            <td>
+                                <label class="mb-2" for="barometer">Barometer: </label>
+                                <input type="text" class="form-control" id="barometer">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Water</th>
+                            <td>
+                                <label class="mb-2" for="temperature">Temperature: </label>
+                                <input type="text" class="form-control" id="temperature">
+                            </td>
+                            <td>
+                                <label class="mb-2" for="clarify">Clarify: </label>
+                                <input type="text" class="form-control" id="clarify">
+                            </td>
+                            <td>
+                                <label class="mb-2" for="depth">Depth: </label>
+                                <input type="text" class="form-control" id="depth">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Tide</th>
+                            <td>
+                                <label for="spring-tide" class="text-center">
+                                    <img src="./images/high-tide.png"><br>
+                                    Spring Tide<br>
+                                    <input type="radio" name="tide" id="spring-tide">
+                                </label>
+                            </td>
+                            <td>
+                                <label for="intertidal-tide" class="text-center">
+                                    <img src="./images/intermediate.png" alt="" srcset=""><br>
+                                    Intertidal Tide<br>
+                                    <input type="radio" name="tide" id="intertidal-tide">
+                                </label>
+                            </td>
+                            <td>
+                                <label for="neap-tide" class="text-center">
+                                   <img src="./images/low-tide.png" alt="" srcset=""><br>
+                                    Neap Tide<br>
+                                    <input type="radio" name="tide" id="neap-tide">
+                                </label>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive fishing-list bg-transparent">
+                    <!-- style="border-collapse: collapse" -->
+                    <table class="table">
+                        <thead>
+                        <tr class="text-center">
+                            <th colspan="4">FISHING LIST</th>
+                        </tr>
+                        <tr class="text-center">
+                            <th>
+                                <!-- style="width: 24px;" -->
+                                <img src="./images/fish.png" alt="" > SPECIES
+                            </th>
+                            <th>
+                                <img src="./images/weight.png" alt="" > WEIGHT
+                            </th>
+                            <th>
+                                <img src="./images/fish (2).png" alt="" > SIZE
+                            </th>
+                            <th>
+                                <img src="./images/back-in-time.png" alt="" srcset="">  TIME
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" title="">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

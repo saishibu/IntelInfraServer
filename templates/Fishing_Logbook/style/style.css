@@ -1,0 +1,227 @@
+body {
+    
+    /* background:url("../images/Blue\ Raspberry.jpg")no-repeat;
+  height: 100%;
+
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background-color: #fff!important;
+  margin-top: 25px !important;
+  font-family: 'Karla', sans-serif !important;
+}
+
+h4 {
+    font-weight: 700 !important;
+}
+
+.form-control{
+    background-color: transparent !important;
+    border: 3px solid black !important;
+    outline: none !important;
+    
+}
+.form-control-parent, .wind-water-tide, .fishing-list {
+    border-radius: 16px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    overflow: hidden;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+}
+.form-control-parent:nth-child(1),.form-control-parent:nth-child(2),.form-control-parent:nth-child(3) {
+    width: 32%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-control-parent:nth-child(2) h4, .form-control-parent:nth-child(3) h4 {
+    margin: 0 -16px;
+    padding-bottom: 8px;
+}
+
+.wind-water-tide table.table,.fishing-list table.table {
+    margin-bottom: 0;
+}
+
+.wind-water-tide table.table tr th:first-child, .wind-water-tide table.table tr td:first-child {
+    border-left: 0;
+    vertical-align: middle;
+    padding-left: 16px;
+    
+}
+
+.wind-water-tide table.table tr th:last-child, .wind-water-tide table.table tr td:last-child {
+    border-right: 0;
+}
+
+.wind-water-tide {
+    margin: 32px 0;
+}
+
+.wind-water-tide table.table tr:first-child td, .wind-water-tide table.table tr:first-child th {
+    border-top: 0;
+}
+
+.wind-water-tide table.table tr:last-child td, .wind-water-tide table.table tr:last-child th {
+    border-bottom: 0;
+    
+}
+
+.form-control-parent:nth-child(2) h4:not(:nth-child(1)), .form-control-parent:nth-child(3) h4:not(:nth-child(1)) {
+    border-top: 1px solid transparent;
+}
+
+.vertical-line:after {
+    border-top: 3px solid;
+    content: "";
+    position: absolute;
+    transform: rotate(90deg);
+    bottom: 0;
+    left: -35px;
+    right: 35px;
+    top: 0;
+}
+
+.vertical-line:before {
+    border-top: 3px solid;
+    content: "";
+    position: absolute;
+    bottom: -35px;
+    left: 0;
+    right: 0;
+    top: 35px;
+}
+
+.vertical-line {
+    position: relative;
+    width: 80px;
+    margin: 32px auto;
+    height: 70px;
+}
+
+label.east {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: -36px;
+    width: 30px;
+    height: 26px;
+    z-index: 2;
+}
+
+label.south {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: -28px;
+    width: 30px;
+    height: 26px;
+    z-index: 2;
+}
+
+label.west {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: -36px;
+    width: 36px;
+    height: 26px;
+    z-index: 2;
+}
+
+label.north {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: -28px;
+    width: 30px;
+    height: 26px;
+    z-index: 2;
+}
+
+label.vertical-line-map {
+    position: relative;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+label.vertical-line-map:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: calc(100% + 52px);
+    height: 12px;
+    background: linear-gradient(to right, #ffffff, #b9b9b9);
+}
+
+
+label.vertical-line-map-5:after {
+    content: unset;
+}
+
+label.vertical-line-map-1:after {
+    background: linear-gradient(to right, #ffffff, #b9b9b9);
+}
+
+label.vertical-line-map-2:after {
+    background: linear-gradient(to right, #b9b9b9, #777777);
+}
+
+label.vertical-line-map-3:after {
+    background: linear-gradient(to right, #777777, #3b3b3b);
+}
+
+label.vertical-line-map-4:after {
+    background: linear-gradient(to right, #3b3b3b, #000);
+}
+
+@media screen and (max-width: 767px) {
+    .form-control-parent:nth-child(1),.form-control-parent:nth-child(2),.form-control-parent:nth-child(3) {
+        width: 95%;
+        margin-bottom: 16px;
+    }
+}
+
+.bg-transparent {
+    /* background-color: rgba(255, 255, 255, 0.7) !important; */
+    background: rgba( 255, 255, 255, 0.75 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 0.0px );
+-webkit-backdrop-filter: blur( 0.0px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+   
+}
+
+.bs-icons {
+    font-size: 2em;
+    /* color: #efefef; */
+    
+}
+
+.h2{
+    font-size: 20px !important;
+    font-weight: 600 !important;
+}
+
+.bs-icons-padding {
+    margin-left: 20px !important;
+}
+
+td .text-center{
+    margin-left: 30% !important;
+}
+
+@media screen and (max-width: 500px){
+    td .text-center{
+        margin-left: 5% !important;
+    }
+    
+}
+
