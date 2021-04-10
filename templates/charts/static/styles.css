@@ -42,8 +42,9 @@ body {
     font-size: 2rem;
     text-align: center;
 
-    color: #2cc7c0;
+    color: #11adad;
     background-color: white;
+    box-shadow: 0 2px 4px 0 rgb(62 57 107 / 13%);
 }
 .selector-button .icon::before {
     position: absolute;
@@ -63,12 +64,12 @@ body {
 }
 
 button:hover {
-    background-color: #7365f5;
+    background-color: #11adad;
     color: #fff;
 }
 
-.icon:hover {
-    color: #2cc7c0;
+.selector-button .icon:hover{
+    color: #ffa139;
 }
 
 .col-3 {
@@ -76,7 +77,7 @@ button:hover {
 }
 
 .btn.btn-custom1{
-    background-color: #34a5a8 !important;
+    background-color: #11adad !important;
     color: #fff;
     font-size: 18px;
     font-weight: 500;

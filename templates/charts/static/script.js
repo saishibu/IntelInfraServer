@@ -5,7 +5,9 @@ const DAYS_OF_WEEK = [
     "Thursday",
     "Friday",
     "Saturday",
-    "Sunday"
+    "Sunday",
+    "Monday",
+
 ];
 
 const HOURS = [
@@ -15,6 +17,7 @@ const HOURS = [
     "03:00 am",
     "04:00 am",
     "05:00 am",
+    "06:00 am",
     "07:00 am",
     "08:00 am",
     "09:00 am",
@@ -126,11 +129,18 @@ function createCharts(data) {
     }).render();
 
     // hourly Temperature chart
+    var temp_list = data.hourly.map((e) => e.temp);
+	console.log(temp_list);
+	var temp_24_list = [];
+	for (var i = 0; i < temp_list.length; i = i + 2) {
+		temp_24_list.push(temp_list[i]);
+	}
+	console.log(temp_24_list);
     new ApexCharts(document.querySelector("#hourly_temp_chart"), {
         series: [
             {
                 name: "Temperature",
-                data: data.hourly.map((e) => e.temp)
+                data: temp_24_list
             }
         ],
         chart: {
@@ -142,13 +152,19 @@ function createCharts(data) {
                 show: true
             }
         },
-        colors:[ "#259ffb"],
+        colors:[ "#00e396"],
         dataLabels: {
             enabled: false
         },
         stroke: {
             curve: "smooth"
         },
+        plotOptions: {
+            bar: {
+              borderRadius: 4,
+              horizontal: false,
+            }
+          },
         grid: {
             borderColor: "#e7e7e7",
             row: {
@@ -197,62 +213,63 @@ function createCharts(data) {
             }
         ],
         chart: {
-            height: 386,
+            height: 380,
             width: 805,
-            type: "line"
+            type: "bar"
         },
-        stroke: {
-            width: 7,
-            curve: "smooth"
+        colors: [ "#FFD200"],
+        dataLabels: {
+            enabled: false
         },
+        plotOptions: {
+            bar: {
+              borderRadius: 4,
+              horizontal: false,
+            }
+          },
+          dataLabels: {
+            enabled: false
+          },
         xaxis: {
             categories: DAYS_OF_WEEK,
             title: {
                 text: "Pressure in hPa"
             }
         },
-        fill: {
-            type: "gradient",
-            gradient: {
-                shade: "dark",
-                gradientToColors: ["#FDD835"],
-                shadeIntensity: 1,
-                type: "horizontal",
-                opacityFrom: 1,
-                opacityTo: 1,
-                stops: [0, 100, 100, 100]
-            }
-        },
-        markers: {
-            size: 4,
-            colors: ["#FFA41B"],
-            strokeColors: "#fff",
-            strokeWidth: 2,
-            hover: {
-                size: 7
-            }
-        },
+        
         yaxis: {
             min: 980,
-            max: 1060,
-        }
+            max: 1050,
+        },
+        tooltip: {
+            x: {
+                format: "dd/MM/yy HH:mm"
+            }
+        },
     }).render();
 
     // hourly pressure  chart
+    var pressure_list = data.hourly.map((e) => e.pressure);
+	console.log(pressure_list);
+	var pressure_24_list = [];
+	for (var i = 0; i < pressure_list.length; i = i + 2) {
+		pressure_24_list.push(pressure_list[i]);
+	}
+	console.log(pressure_24_list);
 
     new ApexCharts(document.querySelector("#hourly_pressure_chart"), {
         series: [
             {
                 name: "Pressure",
-                data: data.daily.map((e) => e.pressure)
+                data: pressure_24_list
             }
         ],
         chart: {
-            height: 380,
+            height: 370,
             width: 805,
             type: "bar"
         },
-        colors: [ "#6078ea"],
+        colors: [ "#FFD200"],
         dataLabels: {
             enabled: false
         },
@@ -307,7 +324,6 @@ function createCharts(data) {
             bar: {
               borderRadius: 4,
               horizontal: false,
-              columnWidth: '50%',
             }
           },
           dataLabels: {
@@ -332,11 +348,18 @@ function createCharts(data) {
     }).render();
 
     // hourly Humidity chart
+    var humidity_list = data.hourly.map((e) => e.humidity);
+	console.log(humidity_list);
+	var humidity_24_list = [];
+	for (var i = 0; i < humidity_list.length; i = i + 2) {
+		humidity_24_list.push(humidity_list[i]);
+	}
+	console.log(humidity_24_list);
     new ApexCharts(document.querySelector("#hourly_humidity_chart"), {
         series: [
             {
                 name: "Humidity",
-                data: data.hourly.map((e) => e.humidity)
+                data: humidity_24_list
             }
         ],
         chart: {
@@ -347,8 +370,8 @@ function createCharts(data) {
         colors:[ "#ff6178"],
         plotOptions: {
             bar: {
-              columnWidth: '50%',
-              distributed: true,
+                borderRadius: 4,
+                horizontal: false,
             }
           },
         dataLabels: {
