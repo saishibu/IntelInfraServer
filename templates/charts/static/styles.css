@@ -155,8 +155,8 @@ body {
         margin-left: 8px ;
     }
     #chart-selector-buttons{
-        display: grid !important;
-    grid-template-columns: 250% 250%;
+    display: grid !important;
+    grid-template-columns: 152% 152% 152%;
     grid-template-rows: 55px 55px;
     grid-gap: 8px;
     }
@@ -191,6 +191,24 @@ body {
     
 }
 
-@media screen and (max-width:1000px){
+/* latest added */
+@media (min-width: 1200px){
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1270px;
+}
+    .col-3{
+        width: 22%;
+    }
+    .col-9 {
+        width: 77%;
+    }
+}
 
+@media (max-width: 767px){
+    #chart-selector-buttons {
+        grid-template-columns: 210% 210%;
+    }
+    .col-3{
+        width:29%;
+    }
 }
