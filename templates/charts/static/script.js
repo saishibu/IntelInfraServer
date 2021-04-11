@@ -77,7 +77,7 @@ function createCharts(data) {
         ],
         chart: {
             height: 386,
-            width: 805,
+            width: "100%",
             type: "bar",
             
             toolbar: {
@@ -104,7 +104,10 @@ function createCharts(data) {
         xaxis: {
             categories: DAYS_OF_WEEK,
             title: {
-                text: "Temperature in °C"
+                text: "Temperature in °C",
+                style: {
+                    fontFamily: 'Poppins, sans-serif',
+                },
             }
         },
         yaxis: {
@@ -145,7 +148,7 @@ function createCharts(data) {
         ],
         chart: {
             height: 380,
-            width: 805,
+            width: "100%",
             type: "bar",
             
             toolbar: {
@@ -178,8 +181,12 @@ function createCharts(data) {
         xaxis: {
             categories: HOURS,
             title: {
-                text: "Temperature in °C"
+                text: "Temperature in °C",
+                style: {
+                    fontFamily: 'Poppins, sans-serif',
+                },
             }
+            
         },
         yaxis: {
             title: {
@@ -214,7 +221,7 @@ function createCharts(data) {
         ],
         chart: {
             height: 380,
-            width: 805,
+            width:"100%",
             type: "bar"
         },
         colors: [ "#FFD200"],
@@ -233,7 +240,10 @@ function createCharts(data) {
         xaxis: {
             categories: DAYS_OF_WEEK,
             title: {
-                text: "Pressure in hPa"
+                text: "Pressure in hPa",
+                style: {
+                    fontFamily: 'Poppins, sans-serif',
+                },
             }
         },
         
@@ -266,7 +276,7 @@ function createCharts(data) {
         ],
         chart: {
             height: 370,
-            width: 805,
+            width: "100%",
             type: "bar"
         },
         colors: [ "#FFD200"],
@@ -285,7 +295,10 @@ function createCharts(data) {
         xaxis: {
             categories: HOURS,
             title: {
-                text: "Pressure in hPa"
+                text: "Pressure in hPa",
+                style: {
+                    fontFamily: 'Poppins, sans-serif',
+                },
             }
         },
         
@@ -313,7 +326,7 @@ function createCharts(data) {
         ],
         chart: {
             height: 380,
-            width: 805,
+            width: "100%",
             type: "bar"
         },
         colors: [ "#ff6178"],
@@ -332,7 +345,10 @@ function createCharts(data) {
         xaxis: {
             categories: DAYS_OF_WEEK,
             title: {
-                text: "Humidity in %"
+                text: "Humidity in %",
+                style: {
+                    fontFamily: 'Poppins, sans-serif',
+                },
             }
         },
         
@@ -364,7 +380,7 @@ function createCharts(data) {
         ],
         chart: {
             height: 370,
-            width: 805,
+            width: "100%",
             type: "bar",
         },
         colors:[ "#ff6178"],
@@ -383,7 +399,10 @@ function createCharts(data) {
         xaxis: {
             categories: HOURS,
             title: {
-                text: "Humidity in %"
+                text: "Humidity in %",
+                style: {
+                    fontFamily: 'Poppins, sans-serif',
+                },
             }
         },
         yaxis: {
