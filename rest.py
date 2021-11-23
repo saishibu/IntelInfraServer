@@ -101,14 +101,12 @@ def temperature():
 @app.route('/')
 def welcome():
 	cmd="pwd"
-	data=os.system(cmd)
-	print(data)
 	security(str(sys._getframe().f_code.co_name))
 #	print "Welcome to Amrita Smart-Grid Middleware"
 #	print "kindly use one of the APIs to get data"
 # 	return render_template('index.html')
 	#return render_template('/home/cs/SGM/Server/welcome.html')
-# 	data ={'welcome':1}
+ 	data ={'welcome':1}
 	return str(data)
 
 @app.route('/stp/test')
