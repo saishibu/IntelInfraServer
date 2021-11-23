@@ -109,7 +109,7 @@ def welcome():
 # 	return render_template('index.html')
 	#return render_template('/home/cs/SGM/Server/welcome.html')
 # 	data ={'welcome':1}
-	return data
+	return str(data)
 
 @app.route('/stp/test')
 def stptest():
