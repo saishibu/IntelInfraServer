@@ -103,8 +103,9 @@ def welcome():
 	security(str(sys._getframe().f_code.co_name))
 #	print "Welcome to Amrita Smart-Grid Middleware"
 #	print "kindly use one of the APIs to get data"
-	return render_template('index.html')
+# 	return render_template('index.html')
 	#return render_template('/home/cs/SGM/Server/welcome.html')
+	return "welcome"
 
 @app.route('/stp/test')
 def stptest():
