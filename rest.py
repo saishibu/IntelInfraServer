@@ -479,4 +479,4 @@ def sch():
 	return jsonify({'Recent data' : r})
 
 if __name__ == '__main__':
-	app.run(host="0.0.0.0",port=5000,debug=1,ssl_context=("cert.pem", "key.pem"))
+	app.run(host="0.0.0.0",port=5000,debug=1,ssl_context=("/home/saishibu/IntelInfraServer/cert.pem", "/home/saishibu/IntelInfraServer/key.pem"))
