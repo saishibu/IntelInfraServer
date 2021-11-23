@@ -102,6 +102,7 @@ def temperature():
 def welcome():
 	cmd="pwd"
 	data=os.system(cmd)
+	print(data)
 	security(str(sys._getframe().f_code.co_name))
 #	print "Welcome to Amrita Smart-Grid Middleware"
 #	print "kindly use one of the APIs to get data"
