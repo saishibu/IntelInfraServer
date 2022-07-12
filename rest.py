@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as md
 import base64
 import pymysql
-import dispenserHelper as dh
+# import dispenserHelper as dh
 
 
 app = Flask(__name__)
@@ -54,34 +54,34 @@ def security(fname):
 	conn.commit()
 
 # FOR DISPENSER
-@app.route('/Dispenser/getAddress')
-def getAddress():
-	security(str(sys._getframe().f_code.co_name))
-	address=dh.addressGen()
-	return str(address)
+# @app.route('/Dispenser/getAddress')
+# def getAddress():
+# 	security(str(sys._getframe().f_code.co_name))
+# 	address=dh.addressGen()
+# 	return str(address)
 
-@app.route('/Dispenser/sendData/<address>/<data>')
-def sendData(address,data):
-	security(str(sys._getframe().f_code.co_name))
-	rc=dh.sendData(address,data)
-	if rc==0:
-		return "Transaction failed"
-	elif rc==1:
-		return "Transaction success"
-	else:
-		return "Transaction not processed"
+# @app.route('/Dispenser/sendData/<address>/<data>')
+# def sendData(address,data):
+# 	security(str(sys._getframe().f_code.co_name))
+# 	rc=dh.sendData(address,data)
+# 	if rc==0:
+# 		return "Transaction failed"
+# 	elif rc==1:
+# 		return "Transaction success"
+# 	else:
+# 		return "Transaction not processed"
 
-@app.route('/Dispenser/sendMoney/<address>/<data>/<money>')
-def sendMoney(address,data,money):
-	security(str(sys._getframe().f_code.co_name))
+# @app.route('/Dispenser/sendMoney/<address>/<data>/<money>')
+# def sendMoney(address,data,money):
+# 	security(str(sys._getframe().f_code.co_name))
 
-	rc=dh.sendMoney(address,data,int(money))
-	if rc==0:
-		return "Transaction failed"
-	elif rc==1:
-		return "Transaction success"
-	else:
-		return "Transaction not processed"
+# 	rc=dh.sendMoney(address,data,int(money))
+# 	if rc==0:
+# 		return "Transaction failed"
+# 	elif rc==1:
+# 		return "Transaction success"
+# 	else:
+# 		return "Transaction not processed"
 
 @app.route('/timenow')
 def timenow():
@@ -475,6 +475,17 @@ def sch():
 	r = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()]
 	r[0]['timestampEpoch']=r[0]['timestamp'].timestamp()*1000
 	return jsonify({'Recent data' : r})
+
+#4Ward
+@app.route('/4ward/trbdata')
+def trb():
+	security(str(sys._getframe().f_code.co_name))
+	cur = mysql.connect().cursor()
+	cur.execute('select * from trbdata ORDER BY id DESC LIMIT 1 ')
+	r = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()]
+# 	r[0]['timestampEpoch']=r[0]['timestamp'].timestamp()*1000
+	return jsonify({'Recent data' : r})
+	
 
 if __name__ == '__main__':
 	app.run(host="0.0.0.0",port=5000,debug=1,ssl_context=("/home/saishibu/cert/cert.pem", "/home/saishibu/cert/key.pem"))
